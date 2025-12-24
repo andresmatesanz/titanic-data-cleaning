@@ -43,3 +43,37 @@ Instalación rápida de dependencias:
 
 ```bash
 pip install -r requirements.txt
+```
+
+---
+
+## 🔹 Cómo ejecutar
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/TU_USUARIO/titanic-data-cleaning.git
+```
+
+2. Navegar al directorio:
+
+```bash
+cd titanic-data-cleaning
+```
+
+3. Ejecutar el script principal:
+
+```bash
+python scripts/titanic_cleaning.py
+```
+
+4. Alternativamente, abrir el notebook para exploración interactiva:
+
+```bash
+jupyter notebook notebooks/titanic_cleaning.ipynb
+```
+
+## 🔹 Autor
+
+**Andrés Matesanz**  
+[GitHub](https://github.com/andresmatesanz) | [LinkedIn](https://www.linkedin.com/in/andresmatesanz/)
