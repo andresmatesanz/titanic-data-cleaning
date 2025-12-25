@@ -1,4 +1,4 @@
-# Titanic Data Cleaning & Feature Engineering 🛳️
+# Titanic Data Cleaning & Feature Engineering
 
 Este proyecto realiza un proceso completo de **análisis, limpieza y transformación de datos** sobre el dataset del Titanic utilizando **Python y pandas**.
 
@@ -6,7 +6,7 @@ El objetivo principal es preparar un DataFrame limpio y estructurado para análi
 
 ---
 
-## 📌 Objetivos del proyecto
+## Objetivos del proyecto
 
 - Analizar y detectar valores nulos en el dataset
 - Aplicar distintas estrategias de imputación según el tipo de variable
@@ -20,9 +20,9 @@ El objetivo principal es preparar un DataFrame limpio y estructurado para análi
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
-# Titanic Data Cleaning & Feature Engineering 🛳️
+# Titanic Data Cleaning & Feature Engineering
 
 Este proyecto realiza un proceso completo de **análisis, limpieza y transformación de datos** sobre el dataset del Titanic utilizando **Python y pandas**.
 
@@ -30,7 +30,7 @@ El objetivo principal es preparar un DataFrame limpio y estructurado para análi
 
 ---
 
-## 📌 Objetivos del proyecto
+## Objetivos del proyecto
 
 - Analizar y detectar valores nulos en el dataset
 - Aplicar distintas estrategias de imputación según el tipo de variable
@@ -44,7 +44,7 @@ El objetivo principal es preparar un DataFrame limpio y estructurado para análi
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 titanic-data-cleaning/
 │
@@ -63,7 +63,7 @@ titanic-data-cleaning/
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 - **Fuente**: Dataset clásico del Titanic
 - **Formato original**: Excel (`.xlsx`)
@@ -71,7 +71,7 @@ titanic-data-cleaning/
 
 ---
 
-## 🔎 Flujo de trabajo
+## Flujo de trabajo
 
 ### 1. Comprobación de valores nulos
 - Creación de un DataFrame booleano para identificar valores faltantes
@@ -127,7 +127,7 @@ Finalmente, los pasajeros se clasifican en:
 
 ---
 
-## ▶️ Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto
 
 1. Clona el repositorio:
 ```bash
@@ -181,7 +181,7 @@ En este proyecto se incluyen dos formas de trabajar con los datos del Titanic:
 
 ---
 
-🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 - Python
 - pandas
 - unidecode
@@ -189,6 +189,8 @@ En este proyecto se incluyen dos formas de trabajar con los datos del Titanic:
 
 ---
 
-👤 Autor
+## Autor
+**Autor:** Andrés Matesanz
+[LinkedIn](https://www.linkedin.com/in/andresmatesanz/) | [GitHub](https://github.com/andresmatesanz)
 
 Proyecto realizado como parte de un proceso formativo en análisis de datos y refactorizado posteriormente para su uso como proyecto de portfolio.
