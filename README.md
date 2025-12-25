@@ -1,79 +1,194 @@
-# Proyecto Titanic – Limpieza y Análisis de Datos con Pandas
+# Titanic Data Cleaning & Feature Engineering 🛳️
 
-Este proyecto forma parte del Bootcamp de Data Science y tiene como objetivo realizar un **análisis y limpieza exhaustiva del dataset del Titanic**, preparando los datos para análisis más avanzados y modelado posterior.
+Este proyecto realiza un proceso completo de **análisis, limpieza y transformación de datos** sobre el dataset del Titanic utilizando **Python y pandas**.
 
----
-
-## 🔹 Objetivos
-
-1. Comprobar y manejar valores nulos en el dataset.
-2. Limpiar columnas de texto y estandarizar nombres de columnas.
-3. Filtrar y categorizar datos según edad y tarifa.
-4. Crear nuevas columnas calculadas:
-   - `Categoria_Edad`  
-   - `Fare_Rank`  
-   - `Puntuación` de cada pasajero
-   - `Indice_Sobrevivencia` y clasificación asociada
-5. Identificar patrones y posibles insights sobre la supervivencia de los pasajeros.
+El objetivo principal es preparar un DataFrame limpio y estructurado para análisis posteriores, aplicando técnicas habituales de **data cleaning**, **feature engineering** y **lógica de negocio**, tal y como se haría en un entorno profesional de data analytics.
 
 ---
 
-## 🔹 Contenido del proyecto
+## 📌 Objetivos del proyecto
 
-- **Notebook:** `notebooks/titanic_cleaning.ipynb`  
-  Contiene todo el análisis paso a paso, con comentarios y visualizaciones intermedias.
-
-- **Script Python:** `scripts/titanic_cleaning.py`  
-  Permite ejecutar todo el proceso de limpieza y cálculo de puntuaciones de manera automática.
-
-- **Dataset:** `data/titanic.csv`  
-  Dataset original usado para el análisis.
+- Analizar y detectar valores nulos en el dataset
+- Aplicar distintas estrategias de imputación según el tipo de variable
+- Limpiar y normalizar nombres de columnas utilizando expresiones regulares
+- Unificar convenciones de nombres (minúsculas y snake_case)
+- Filtrar datos según condiciones avanzadas
+- Crear nuevas variables (feature engineering)
+- Realizar análisis numérico y rankings
+- Calcular métricas personalizadas por pasajero
+- Generar un dataset final limpio y reproducible
 
 ---
 
-## 🔹 Tecnologías y librerías usadas
+## 📁 Estructura del proyecto
 
-- Python 3.x
-- pandas
-- numpy
-- regex (re)
-- Jupyter Notebook (opcional para visualización paso a paso)
+# Titanic Data Cleaning & Feature Engineering 🛳️
 
-Instalación rápida de dependencias:
+Este proyecto realiza un proceso completo de **análisis, limpieza y transformación de datos** sobre el dataset del Titanic utilizando **Python y pandas**.
 
+El objetivo principal es preparar un DataFrame limpio y estructurado para análisis posteriores, aplicando técnicas habituales de **data cleaning**, **feature engineering** y **lógica de negocio**, tal y como se haría en un entorno profesional de data analytics.
+
+---
+
+## 📌 Objetivos del proyecto
+
+- Analizar y detectar valores nulos en el dataset
+- Aplicar distintas estrategias de imputación según el tipo de variable
+- Limpiar y normalizar nombres de columnas utilizando expresiones regulares
+- Unificar convenciones de nombres (minúsculas y snake_case)
+- Filtrar datos según condiciones avanzadas
+- Crear nuevas variables (feature engineering)
+- Realizar análisis numérico y rankings
+- Calcular métricas personalizadas por pasajero
+- Generar un dataset final limpio y reproducible
+
+---
+
+## 📁 Estructura del proyecto
+
+titanic-data-cleaning/
+│
+├── data/
+│ ├── titanic.xlsx # Dataset original
+│ └── titanic_cleaned.csv # Dataset limpio generado por el script
+│
+├── notebooks/
+│ └── titanic_cleaning.ipynb # Notebook explicativo paso a paso
+│
+├── scripts/
+│ └── titanic_cleaning.py # Script reproducible con funciones
+│
+├── README.md
+└── requirements.txt
+
+---
+
+## 📊 Dataset
+
+- **Fuente**: Dataset clásico del Titanic
+- **Formato original**: Excel (`.xlsx`)
+- **Contenido**: Información demográfica, socioeconómica y de supervivencia de los pasajeros
+
+---
+
+## 🔎 Flujo de trabajo
+
+### 1. Comprobación de valores nulos
+- Creación de un DataFrame booleano para identificar valores faltantes
+- Conteo de valores nulos por columna y total del DataFrame
+
+### 2. Relleno de valores nulos
+Se aplican distintas estrategias según la naturaleza de la variable:
+- `Age`: media de la columna
+- `Fare`: valor constante (100)
+- `Embarked`: moda
+- `Cabin`: forward fill (`ffill`) y backward fill (`bfill`)
+
+### 3. Limpieza de columnas
+- Eliminación de acentos y caracteres especiales
+- Eliminación de espacios en blanco
+- Conversión a minúsculas
+- Uso de convención `snake_case`
+
+### 4. Filtrado avanzado
+- Pasajeros con edad entre 18 y 60 años
+- Tarifa (`fare`) por encima del percentil 50
+
+### 5. Feature engineering
+- Creación de la variable `categoria_edad`:
+  - Joven: < 30 años
+  - Adulto: 30–45 años
+  - Mayor: > 45 años
+
+### 6. Análisis numérico
+- Ordenación por tarifa descendente
+- Eliminación de duplicados (`passengerid` + `pclass`)
+- Creación de ranking de tarifas (`fare_rank`)
+
+### 7. Puntuación personalizada
+Se calcula una puntuación por pasajero en función de:
+- Supervivencia
+- Edad
+- Tarifa
+- Clase del pasajero
+
+### 8. Índice de sobrevivencia
+Se crea una métrica compuesta (`indice_sobrevivencia`) basada en:
+- Tarifa
+- Edad
+- Clase
+- Sexo
+- Supervivencia
+
+Finalmente, los pasajeros se clasifican en:
+- **Alta**
+- **Media**
+- **Baja** probabilidad de sobrevivencia
+
+---
+
+## ▶️ Cómo ejecutar el proyecto
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/tu-usuario/titanic-data-cleaning.git
+cd titanic-data-cleaning
+```
+
+2. (Opcional) Crea y activa un entorno virtual:
+```bash
+python -m venv titanic-env
+source titanic-env/bin/activate  # Linux/Mac
+titanic-env\Scripts\activate     # Windows
+```
+
+3. Instala las dependencias:
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 🔹 Cómo ejecutar
-
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/TU_USUARIO/titanic-data-cleaning.git
-```
-
-2. Navegar al directorio:
-
-```bash
-cd titanic-data-cleaning
-```
-
-3. Ejecutar el script principal:
-
+4. Ejecuta el script principal:
 ```bash
 python scripts/titanic_cleaning.py
 ```
 
-4. Alternativamente, abrir el notebook para exploración interactiva:
-
+El dataset limpio se generará automáticamente en:
 ```bash
-jupyter notebook notebooks/titanic_cleaning.ipynb
+data/titanic_cleaned.csv
 ```
+---
 
-## 🔹 Autor
+## Notebook vs Script
 
-**Andrés Matesanz**  
-[GitHub](https://github.com/andresmatesanz) | [LinkedIn](https://www.linkedin.com/in/andresmatesanz/)
+En este proyecto se incluyen dos formas de trabajar con los datos del Titanic:
+
+- **Notebook (`notebooks/titanic_cleaning.ipynb`)**  
+  El notebook sirve como documento explicativo paso a paso. Contiene:
+  - Explicaciones en Markdown sobre cada etapa del análisis.
+  - Visualización de outputs intermedios.
+  - Código lineal que sigue el flujo del proyecto.
+  
+  Es ideal para presentar el razonamiento y la metodología del proyecto, y para que un recruiter o tutor pueda entender claramente cada paso.
+
+- **Script (`scripts/titanic_cleaning.py`)**  
+  El script es la versión profesional y reproducible del proyecto. Contiene:
+  - Funciones modulares que encapsulan la lógica de limpieza, filtrado y feature engineering.
+  - Lectura del dataset y escritura del CSV final de manera automatizada.
+  - Permite ejecutar todo el pipeline con un solo comando:
+  
+  ```bash
+  python scripts/titanic_cleaning.py
+
+---
+
+🛠️ Tecnologías utilizadas
+- Python
+- pandas
+- unidecode
+- Jupyter Notebook
+
+---
+
+👤 Autor
+
+Proyecto realizado como parte de un proceso formativo en análisis de datos y refactorizado posteriormente para su uso como proyecto de portfolio.
