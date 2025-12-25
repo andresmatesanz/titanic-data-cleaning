@@ -5,11 +5,11 @@ from unidecode import unidecode
 # =========================
 # 1. Carga de datos
 # =========================
-def cargar_datos(path="data/titanic.csv"):
+def cargar_datos(path="data/Titanic.xlsx"):
     """
     Carga el dataset del Titanic desde la carpeta data.
     """
-    return pd.read_csv(path)
+    return pd.read_excel(path)
 
 
 # =========================
@@ -57,7 +57,7 @@ def limpiar_columnas(df):
 
 
 # =========================
-# 5. Filtrado avanzado
+# 5. Filtrado avanzado (análisis puntual)
 # =========================
 def filtrar_pasajeros(df):
     """
@@ -78,9 +78,9 @@ def crear_categoria_edad(df):
     """
     Crea la columna categoria_edad según la edad del pasajero.
     """
+    df["categoria_edad"] = "Mayor"
     df.loc[df["age"] < 30, "categoria_edad"] = "Joven"
     df.loc[df["age"].between(30, 45), "categoria_edad"] = "Adulto"
-    df.loc[df["age"] > 45, "categoria_edad"] = "Mayor"
     return df
 
 
@@ -106,13 +106,13 @@ def calcular_puntuacion(df):
     Calcula una puntuación para cada pasajero
     según reglas definidas en el enunciado.
     """
-    df["puntuacion"] = 0
+    df["calcular_puntuacion"] = 0
 
-    df.loc[df["survived"] == 1, "puntuacion"] += 5
-    df.loc[df["age"] >= 50, "puntuacion"] += 4
-    df.loc[df["fare"] > 200, "puntuacion"] += 3
-    df.loc[df["pclass"] == 1, "puntuacion"] += 2
-    df.loc[df["pclass"] == 3, "puntuacion"] -= 2
+    df.loc[df["survived"] == 1, "calcular_puntuacion"] += 5
+    df.loc[df["age"] >= 50, "calcular_puntuacion"] += 4
+    df.loc[df["fare"] > 200, "calcular_puntuacion"] += 3
+    df.loc[df["pclass"] == 1, "calcular_puntuacion"] += 2
+    df.loc[df["pclass"] == 3, "calcular_puntuacion"] -= 2
 
     return df
 
@@ -138,9 +138,9 @@ def calcular_indice_sobrevivencia(df):
         "indice_sobrevivencia"
     ] /= 2
 
-    df.loc[df["indice_sobrevivencia"] > 200, "probabilidad_sobrevivencia"] = "Alta"
+    df["probabilidad_sobrevivencia"] = "Baja"
     df.loc[df["indice_sobrevivencia"].between(100, 200), "probabilidad_sobrevivencia"] = "Media"
-    df.loc[df["indice_sobrevivencia"] < 100, "probabilidad_sobrevivencia"] = "Baja"
+    df.loc[df["indice_sobrevivencia"] > 200, "probabilidad_sobrevivencia"] = "Alta"
 
     return df
 
@@ -149,16 +149,20 @@ def calcular_indice_sobrevivencia(df):
 # 10. Ejecución principal
 # =========================
 if __name__ == "__main__":
+
+    # Carga y limpieza básica
     df = cargar_datos()
     df = limpiar_columnas(df)
-
-    analizar_nulos(df)
-
     df = limpiar_nulos(df)
-    df = filtrar_pasajeros(df)
+
+    # Análisis puntual (no modifica el dataset final)
+    df_filtrado = filtrar_pasajeros(df)
+
+    # Feature engineering y métricas
     df = crear_categoria_edad(df)
     df = analizar_tarifas(df)
     df = calcular_puntuacion(df)
     df = calcular_indice_sobrevivencia(df)
 
+    # Guardado del dataset limpio
     df.to_csv("data/titanic_cleaned.csv", index=False)
