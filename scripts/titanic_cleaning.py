@@ -31,13 +31,15 @@ def analizar_nulos(df):
 def limpiar_nulos(df):
     """
     Aplica distintas estrategias de imputación
-    según el enunciado del proyecto.
+    compatibles con pandas 3.0+
     """
-    df["age"].fillna(df["age"].mean(), inplace=True)
-    df["fare"].fillna(100, inplace=True)
-    df["embarked"].fillna(df["embarked"].mode()[0], inplace=True)
-    df["cabin"].fillna(method="ffill", inplace=True)
-    df["cabin"].fillna(method="bfill", inplace=True)
+    df["age"] = df["age"].fillna(df["age"].mean())
+    df["fare"] = df["fare"].fillna(100)
+    df["embarked"] = df["embarked"].fillna(df["embarked"].mode()[0])
+
+    df["cabin"] = df["cabin"].ffill()
+    df["cabin"] = df["cabin"].bfill()
+
     return df
 
 
