@@ -22,6 +22,7 @@ El objetivo principal es preparar un DataFrame limpio y estructurado para análi
 
 ## 🗂️ Estructura del proyecto
 
+```text
 titanic-data-cleaning/
 │
 ├── data/
@@ -36,6 +37,7 @@ titanic-data-cleaning/
 │
 ├── README.md
 └── requirements.txt
+```
 
 ---
 
