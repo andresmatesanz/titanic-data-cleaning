@@ -109,7 +109,7 @@ Finalmente, los pasajeros se clasifican en:
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/titanic-data-cleaning.git
+git clone https://github.com/andresmatesanz/titanic-data-cleaning.git
 cd titanic-data-cleaning
 ```
 
