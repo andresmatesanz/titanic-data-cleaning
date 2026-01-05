@@ -1,4 +1,4 @@
-# 🛳️ Titanic Data Cleaning & Feature Engineering
+# 🛳️ Análisis y Limpieza de Datos del Titanic
 
 Este proyecto realiza un proceso completo de **análisis, limpieza y transformación de datos** sobre el dataset del Titanic utilizando **Python y pandas**.
 
